@@ -5,11 +5,23 @@
     "version" : "0.1.0",
 
     "action": {
-        "default_popup": "popup.html"
+        "default_popup": "popup/popup.html"
     },
 
     "background" :
     {
         "service_worker" : "background.js"
-    }
+    },
+
+    "content_scripts": [
+        {
+            "matches":[
+                "https://chatgpt.com/*"
+            ],
+            "js":[
+                "utils/conversationExtractor.js",
+                "content.js"
+            ]
+        }
+    ]
 }
